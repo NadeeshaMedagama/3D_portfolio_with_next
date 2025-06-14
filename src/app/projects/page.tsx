@@ -415,7 +415,7 @@ interface Project {
     featured?: boolean;
 }
 
-export default function ProjectsSection() {
+export function ProjectsSection() {
     const [activeFilter, setActiveFilter] = useState('All');
     const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
 
