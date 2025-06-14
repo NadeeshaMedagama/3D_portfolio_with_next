@@ -255,7 +255,7 @@ function Navigation() {
                 whileHover={{ scale: 1.05 }}
                 className="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent"
             >
-              Portfolio
+              NM Portfolio
             </motion.div>
             <div className="hidden md:flex space-x-8">
               {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((item, index) => (
