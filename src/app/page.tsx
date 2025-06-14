@@ -17,12 +17,13 @@ import {
 
 // 3D Scene Component using vanilla Three.js
 function ThreeJSScene() {
-  const mountRef = useRef(null);
-  const sceneRef = useRef(null);
-  const rendererRef = useRef(null);
-  const animationIdRef = useRef(null);
+  const mountRef = useRef<HTMLDivElement>(null);
+  const sceneRef = useRef<THREE.Scene | null>(null);
+  const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
+  const animationIdRef = useRef<number | null>(null);
 
   useEffect(() => {
+
     if (!mountRef.current) return;
 
     // Scene setup
@@ -168,6 +169,14 @@ function SkillCard({ icon: Icon, title, description, delay = 0 }) {
 
 // Floating Particles Component
 function FloatingParticles() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) return null;
+
   return (
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(20)].map((_, i) => (
