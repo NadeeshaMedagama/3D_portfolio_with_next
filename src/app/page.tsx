@@ -12,7 +12,8 @@ import {
   Code,
   Palette,
   Database,
-  Smartphone
+  Smartphone,
+  LucideIcon
 } from 'lucide-react';
 
 // 3D Scene Component using vanilla Three.js
@@ -21,6 +22,17 @@ function ThreeJSScene() {
   const sceneRef = useRef<THREE.Scene | null>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
   const animationIdRef = useRef<number | null>(null);
+
+  type SphereUserData = {
+    originalY: number;
+    speed: number;
+    rotationSpeed: { x: number; y: number };
+  };
+
+  // Define the sphere type including userData
+  type SphereWithData = THREE.Mesh<THREE.SphereGeometry, THREE.MeshStandardMaterial> & {
+    userData: SphereUserData;
+  };
 
   useEffect(() => {
 
@@ -48,13 +60,14 @@ function ThreeJSScene() {
     scene.add(directionalLight);
 
     // Create animated spheres
-    const spheres = [];
+    const spheres: SphereWithData[] = [];
+
     const sphereData = [
-      { position: [-4, 2, -3], color: 0x6366f1, scale: 0.8 },
-      { position: [4, -2, -4], color: 0x8b5cf6, scale: 0.6 },
-      { position: [0, 3, -5], color: 0x06b6d4, scale: 0.4 },
-      { position: [-3, -3, -2], color: 0xf59e0b, scale: 0.5 },
-      { position: [3, 1, -6], color: 0x10b981, scale: 0.7 }
+      { position: [-4, 2, -3] as [number, number, number], color: 0x6366f1, scale: 0.8 },
+      { position: [4, -2, -4] as [number, number, number], color: 0x8b5cf6, scale: 0.6 },
+      { position: [0, 3, -5] as [number, number, number], color: 0x06b6d4, scale: 0.4 },
+      { position: [-3, -3, -2] as [number, number, number], color: 0xf59e0b, scale: 0.5 },
+      { position: [3, 1, -6] as [number, number, number], color: 0x10b981, scale: 0.7 }
     ];
 
     sphereData.forEach((data) => {
@@ -67,14 +80,17 @@ function ThreeJSScene() {
         emissiveIntensity: 0.1
       });
 
-      const sphere = new THREE.Mesh(geometry, material);
-      sphere.position.set(...data.position);
+      const sphere = new THREE.Mesh(geometry, material) as SphereWithData;
       sphere.userData = {
         originalY: data.position[1],
         speed: Math.random() * 0.02 + 0.01,
-        rotationSpeed: { x: Math.random() * 0.02, y: Math.random() * 0.02 }
+        rotationSpeed: {
+          x: Math.random() * 0.02,
+          y: Math.random() * 0.02
+        }
       };
 
+      sphere.position.set(...data.position);
       scene.add(sphere);
       spheres.push(sphere);
     });
@@ -145,8 +161,15 @@ function ThreeJSScene() {
   return <div ref={mountRef} className="absolute inset-0" style={{ zIndex: 0 }} />;
 }
 
+interface SkillCardProps {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  delay?: number;
+}
+
 // Skill Card Component
-function SkillCard({ icon: Icon, title, description, delay = 0 }) {
+function SkillCard({ icon: Icon, title, description, delay = 0 }: SkillCardProps) {
   return (
       <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -284,7 +307,7 @@ function HeroSection() {
                 className="mb-6"
             >
               <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                Your Name
+                Nadeesha Medagama
               </h1>
               <motion.div
                   className="mt-4 h-1 bg-gradient-to-r from-indigo-400 to-purple-400 mx-auto rounded-full"
