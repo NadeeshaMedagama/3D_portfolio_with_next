@@ -1,5 +1,7 @@
 'use client';
+
 import React, { useRef, useEffect, useState } from 'react';
+import { SkillsPreview } from './components/SkillsPreview';
 import * as THREE from 'three';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -323,7 +325,7 @@ function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Full Stack Developer & 3D Experience Creator
+              DevOps Enthusiast | Cloud & Automation Explorer
             </motion.p>
 
             <motion.p
@@ -332,8 +334,8 @@ function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
             >
-              Passionate about creating immersive digital experiences with cutting-edge technologies.
-              Specializing in React, Next.js, Three.js, and modern web development.
+              Passionate about automating development workflows and building scalable apps with Docker, Kubernetes, CI/CD, and cloud platforms.
+              Bridging DevOps and full stack development.
             </motion.p>
 
             <motion.div
@@ -591,6 +593,7 @@ export default function Portfolio() {
         <Navigation />
         <HeroSection />
         <AboutSection />
+        <SkillsPreview />
         <ContactSection />
       </div>
   );
