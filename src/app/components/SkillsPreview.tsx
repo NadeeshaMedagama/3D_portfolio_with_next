@@ -6,10 +6,10 @@ import Link from 'next/link';
 
 export function SkillsPreview() {
     const skillsPreview = [
-        { icon: Container, title: "Containerization", count: 6 },
+        { icon: Container, title: "Containerization", count: 4 },
         { icon: Cloud, title: "Cloud Platforms", count: 5 },
-        { icon: GitBranch, title: "CI/CD Tools", count: 8 },
-        { icon: Zap, title: "Automation", count: 12 },
+        { icon: GitBranch, title: "CI/CD Tools", count: 4 },
+        { icon: Zap, title: "Automation", count: 4 },
     ];
 
     return (
