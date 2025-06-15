@@ -9,6 +9,7 @@ import {
   ChevronDown,
   Github,
   Linkedin,
+  User,
   Mail,
   Phone,
   MapPin,
@@ -377,29 +378,36 @@ function HeroSection() {
 
             <motion.div
                 className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
+                initial={{opacity: 0, y: 30}}
+                animate={{opacity: 1, y: 0}}
+                transition={{duration: 0.8, delay: 0.8}}
             >
-              <motion.button
-                  whileHover={{
-                    scale: 1.05,
-                    boxShadow: "0 10px 25px rgba(99, 102, 241, 0.3)",
-                    y: -2
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold rounded-full hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 shadow-lg"
-              >
-                View My Work
-              </motion.button>
+              <a href="#projects">
+                <motion.button
+                    whileHover={{
+                      scale: 1.05,
+                      boxShadow: "0 10px 25px rgba(99, 102, 241, 0.3)",
+                      y: -2
+                    }}
+                    whileTap={{scale: 0.95}}
+                    className="cursor-pointer px-8 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold rounded-full hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 shadow-lg"
+                >
+                  View My Work
+                </motion.button>
+              </a>
 
-              <motion.button
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 border-2 border-gray-600 text-gray-300 font-semibold rounded-full hover:bg-gray-800 hover:border-gray-500 transition-all duration-300"
+              <a href="https://drive.google.com/file/d/1pXOylQ8dbasXfXmqWrM7ypiRliXHHzsQ/view?usp=sharing"
+                 target="_blank"
+                 rel="noopener noreferrer"
               >
-                Download CV
-              </motion.button>
+                <motion.button
+                    whileHover={{scale: 1.05, y: -2}}
+                    whileTap={{scale: 0.95}}
+                    className="cursor-pointer px-8 py-3 border-2 border-gray-600 text-gray-300 font-semibold rounded-full hover:bg-gray-800 hover:border-gray-500 transition-all duration-300"
+                >
+                  Download CV
+                </motion.button>
+              </a>
             </motion.div>
           </motion.div>
 
@@ -447,38 +455,39 @@ function AboutSection() {
                 viewport={{ once: true }}
             />
             <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
-              I'm a passionate developer who loves creating immersive digital experiences.
-              With expertise in modern web technologies and 3D graphics, I bring ideas to life
-              through code and creativity.
+              I'm a DevOps and cloud enthusiast passionate about automation and scalable infrastructure.
+              I specialize in CI/CD, cloud platforms, and streamlining development workflows.
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true }}
+                initial={{opacity: 0, x: -50}}
+                whileInView={{opacity: 1, x: 0}}
+                transition={{duration: 0.8, delay: 0.2}}
+                viewport={{once: true}}
                 className="space-y-6"
             >
               <h3 className="text-2xl font-bold text-white mb-6">My Journey</h3>
               <p className="text-gray-400 leading-relaxed">
-                Started as a curious developer, I've evolved into someone who specializes in creating
-                interactive 3D web experiences. I believe in the power of technology to solve real-world
-                problems and create meaningful digital experiences.
+                Started as a curious tech enthusiast, I've evolved into a DevOps engineer passionate about building
+                automated, efficient, and scalable cloud infrastructures.
+                I believe in leveraging the power of automation and cloud-native tools to streamline processes and solve
+                real-world operational challenges.
               </p>
               <p className="text-gray-400 leading-relaxed">
-                When I'm not coding, you'll find me exploring new technologies, contributing to open-source
-                projects, or mentoring fellow developers. I'm always excited to take on new challenges
-                and push the boundaries of what's possible on the web.
+                When I'm not automating workflows or managing deployments, you'll find me exploring emerging DevOps
+                tools, contributing to community projects, or helping others learn the cloud.
+                I'm always eager to embrace new challenges and push the limits of what's possible in modern software
+                delivery.
               </p>
 
               <motion.div
                   className="flex space-x-6 pt-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  viewport={{ once: true }}
+                  initial={{opacity: 0, y: 20}}
+                  whileInView={{opacity: 1, y: 0}}
+                  transition={{duration: 0.6, delay: 0.4}}
+                  viewport={{once: true}}
               >
                 <div className="text-center">
                   <div className="text-2xl font-bold text-indigo-400">3+</div>
@@ -496,36 +505,69 @@ function AboutSection() {
             </motion.div>
 
             <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                viewport={{ once: true }}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+                initial={{opacity: 0, x: 50}}
+                whileInView={{opacity: 1, x: 0}}
+                transition={{duration: 0.8, delay: 0.4}}
+                viewport={{once: true}}
+                className="relative"
             >
-              <SkillCard
-                  icon={Code}
-                  title="Frontend"
-                  description="React, Next.js, TypeScript"
-                  delay={0}
-              />
-              <SkillCard
-                  icon={Database}
-                  title="Backend"
-                  description="Node.js, Python, PostgreSQL"
-                  delay={0.1}
-              />
-              <SkillCard
-                  icon={Palette}
-                  title="3D Graphics"
-                  description="Three.js, WebGL, Blender"
-                  delay={0.2}
-              />
-              <SkillCard
-                  icon={Smartphone}
-                  title="Mobile"
-                  description="React Native, Flutter"
-                  delay={0.3}
-              />
+              <div
+                  className="relative group cursor-pointer transform-gpu transition-all duration-500 ease-out"
+                  onMouseMove={(e) => {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    const rotateX = (y - centerY) / 10;
+                    const rotateY = (centerX - x) / 10;
+
+                    e.currentTarget.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(50px)`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+                  }}
+              >
+                {/* 3D Frame Container */}
+                <div className="relative">
+                  {/* Glowing Border */}
+                  <div
+                      className="absolute -inset-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-3xl blur-lg opacity-25 group-hover:opacity-40 transition-opacity duration-500"></div>
+
+                  {/* Main Photo Container */}
+                  <div
+                      className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-3xl p-6 shadow-2xl transform transition-all duration-500">
+                    {/* Inner Glow */}
+                    <div
+                        className="absolute inset-2 bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10 rounded-2xl"></div>
+
+                    {/* Photo Frame */}
+                    <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                      {/* Placeholder for your photo - Replace src with your actual photo */}
+                      <div className="relative aspect-[4/5] overflow-hidden">
+                        <img
+                            src={myPhoto}
+                            alt="Your Name"
+                            className="w-full h-full object-cover"
+                        />
+                        <div
+                            className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+                      </div>
+
+                      {/* Overlay Effects */}
+                      <div
+                          className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    </div>
+
+                    {/* 3D Accent Lines */}
+                    <div
+                        className="absolute top-0 left-0 w-20 h-1 bg-gradient-to-r from-blue-500 to-transparent rounded-full"></div>
+                    <div
+                        className="absolute bottom-0 right-0 w-20 h-1 bg-gradient-to-l from-purple-500 to-transparent rounded-full"></div>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -539,20 +581,20 @@ function ContactSection() {
       <section id="contact" className="py-20 px-6 relative">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              initial={{opacity: 0, y: 50}}
+              whileInView={{opacity: 1, y: 0}}
+              transition={{duration: 0.8}}
+              viewport={{once: true}}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
               Let's Connect
             </h2>
             <motion.div
                 className="h-1 bg-gradient-to-r from-indigo-400 to-purple-400 mx-auto rounded-full mb-8"
-                initial={{ width: 0 }}
-                whileInView={{ width: 100 }}
-                transition={{ duration: 1 }}
-                viewport={{ once: true }}
+                initial={{width: 0}}
+                whileInView={{width: 100}}
+                transition={{duration: 1}}
+                viewport={{once: true}}
             />
             <p className="text-gray-400 text-lg mb-12 max-w-2xl mx-auto">
               Ready to bring your ideas to life? Let's discuss how we can work together
@@ -561,45 +603,45 @@ function ContactSection() {
           </motion.div>
 
           <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
+              initial={{opacity: 0, y: 50}}
+              whileInView={{opacity: 1, y: 0}}
+              transition={{duration: 0.8, delay: 0.2}}
+              viewport={{once: true}}
               className="grid md:grid-cols-3 gap-8 mb-12"
           >
             <motion.div
-                whileHover={{ scale: 1.05, y: -5 }}
+                whileHover={{scale: 1.05, y: -5}}
                 className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-6 hover:border-indigo-500 transition-all duration-300"
             >
-              <Mail className="w-8 h-8 text-indigo-400 mx-auto mb-4" />
+              <Mail className="w-8 h-8 text-indigo-400 mx-auto mb-4"/>
               <h3 className="text-white font-semibold mb-2">Email</h3>
               <p className="text-gray-400">your.email@example.com</p>
             </motion.div>
 
             <motion.div
-                whileHover={{ scale: 1.05, y: -5 }}
+                whileHover={{scale: 1.05, y: -5}}
                 className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-6 hover:border-purple-500 transition-all duration-300"
             >
-              <Phone className="w-8 h-8 text-purple-400 mx-auto mb-4" />
+              <Phone className="w-8 h-8 text-purple-400 mx-auto mb-4"/>
               <h3 className="text-white font-semibold mb-2">Phone</h3>
               <p className="text-gray-400">+1 (555) 123-4567</p>
             </motion.div>
 
             <motion.div
-                whileHover={{ scale: 1.05, y: -5 }}
+                whileHover={{scale: 1.05, y: -5}}
                 className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-6 hover:border-cyan-500 transition-all duration-300"
             >
-              <MapPin className="w-8 h-8 text-cyan-400 mx-auto mb-4" />
+              <MapPin className="w-8 h-8 text-cyan-400 mx-auto mb-4"/>
               <h3 className="text-white font-semibold mb-2">Location</h3>
               <p className="text-gray-400">Your City, Country</p>
             </motion.div>
           </motion.div>
 
           <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
+              initial={{opacity: 0, y: 30}}
+              whileInView={{opacity: 1, y: 0}}
+              transition={{duration: 0.8, delay: 0.4}}
+              viewport={{once: true}}
               className="flex justify-center space-x-6"
           >
             {[
