@@ -228,14 +228,38 @@ function FloatingParticles() {
   );
 }
 
-// Navigation Component
 function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
+      // For navbar background effect
       setIsScrolled(window.scrollY > 50);
+
+      // For active section detection
+      const sections = document.querySelectorAll('section[id]');
+      let current = '';
+      let closestSection = '';
+      let closestDistance = Infinity;
+
+      sections.forEach((section) => {
+        const element = section as HTMLElement;
+        const rect = element.getBoundingClientRect();
+        const sectionMiddle = rect.top + rect.height / 2;
+        const distanceFromCenter = Math.abs(window.innerHeight / 2 - sectionMiddle);
+
+        if (distanceFromCenter < closestDistance) {
+          closestDistance = distanceFromCenter;
+          closestSection = element.id;
+        }
+      });
+
+      setActiveSection(closestSection);
     };
+
+    // Set initial state
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -253,31 +277,43 @@ function Navigation() {
           <div className="flex justify-between items-center">
             <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent"
+                className="cursor-pointer text-2xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent"
             >
               NM Portfolio
             </motion.div>
+
             <div className="hidden md:flex space-x-8">
-              {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((item, index) => (
-                  <motion.a
-                      key={item}
-                      href={`#${item.toLowerCase()}`}
-                      whileHover={{ scale: 1.1, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
-                      className="text-gray-300 hover:text-white transition-colors duration-300 relative"
-                  >
-                    {item}
-                    <motion.div
-                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-400 to-purple-400"
-                        initial={{ scaleX: 0 }}
-                        whileHover={{ scaleX: 1 }}
-                        transition={{ duration: 0.3 }}
-                    />
-                  </motion.a>
-              ))}
+              {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((item, index) => {
+                const sectionId = item.toLowerCase();
+                const isActive = activeSection === sectionId;
+
+                return (
+                    <motion.a
+                        key={item}
+                        href={`#${sectionId}`}
+                        whileHover={{ scale: 1.1, y: -2 }}
+                        whileTap={{ scale: 0.95 }}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6, delay: index * 0.1 }}
+                        className={`relative transition-colors duration-300 ${
+                            isActive ? 'text-white' : 'text-gray-300 hover:text-white'
+                        }`}
+                    >
+                      {item}
+                      <motion.div
+                          className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-400 to-purple-400"
+                          initial={{ scaleX: 0 }}
+                          animate={{ scaleX: isActive ? 1 : 0 }}
+                          whileHover={{ scaleX: 1 }}
+                          transition={{
+                            duration: 0.3,
+                            ease: [0.25, 0.1, 0.25, 1]
+                          }}
+                      />
+                    </motion.a>
+                );
+              })}
             </div>
           </div>
         </div>
