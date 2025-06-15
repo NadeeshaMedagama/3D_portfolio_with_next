@@ -18,7 +18,9 @@ import {
   Palette,
   Database,
   Smartphone,
-  LucideIcon
+  LucideIcon,
+  Twitter,
+  BookOpenText, Facebook
 } from 'lucide-react';
 
 // 3D Scene Component using vanilla Three.js
@@ -647,9 +649,12 @@ function ContactSection() {
               className="flex justify-center space-x-6"
           >
             {[
-              { icon: Github, href: "#", color: "hover:text-gray-300", bgColor: "hover:bg-gray-700" },
-              { icon: Linkedin, href: "#", color: "hover:text-blue-400", bgColor: "hover:bg-blue-900/20" },
-              { icon: Mail, href: "#", color: "hover:text-indigo-400", bgColor: "hover:bg-indigo-900/20" }
+              { icon: Github, href: "https://github.com/NadeeshaMedagama", color: "hover:text-gray-300", bgColor: "hover:bg-gray-700" },
+              { icon: Linkedin, href: "https://www.linkedin.com/in/nadeesha-medagama-5aa827287/", color: "hover:text-blue-400", bgColor: "hover:bg-blue-900/20" },
+              { icon: Mail, href: "nadeeshamedagama123@gmail.com", color: "hover:text-indigo-400", bgColor: "hover:bg-indigo-900/20" },
+              { icon: BookOpenText, href: "hhttps://medium.com/@nadeeshamedagama", color: "hover:text-emerald-400", bgColor: "hover:bg-emerald-900/20"},
+              { icon: Twitter, href: "https://x.com/NadeeshaMe36209",color: "hover:text-sky-400",bgColor: "hover:bg-sky-900/20"},
+              { icon: Facebook, href: "https://facebook.com/nadeesha.medagama/",color: "hover:text-yellow-300",bgColor: "hover:bg-yellow-900/20"}
             ].map((social, index) => (
                 <motion.a
                     key={index}
