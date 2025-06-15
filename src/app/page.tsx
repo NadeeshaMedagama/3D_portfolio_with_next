@@ -490,16 +490,16 @@ function AboutSection() {
                   viewport={{once: true}}
               >
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-indigo-400">3+</div>
+                  <div className="text-2xl font-bold text-indigo-400">1+</div>
                   <div className="text-gray-400 text-sm">Years Experience</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-purple-400">50+</div>
+                  <div className="text-2xl font-bold text-purple-400">10+</div>
                   <div className="text-gray-400 text-sm">Projects Completed</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-cyan-400">20+</div>
-                  <div className="text-gray-400 text-sm">Happy Clients</div>
+                  <div className="text-2xl font-bold text-cyan-400">15+</div>
+                  <div className="text-gray-400 text-sm">DevOps Tools</div>
                 </div>
               </motion.div>
             </motion.div>
