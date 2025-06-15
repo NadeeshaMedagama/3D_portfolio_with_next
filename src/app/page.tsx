@@ -173,28 +173,6 @@ interface SkillCardProps {
   delay?: number;
 }
 
-// Skill Card Component
-function SkillCard({ icon: Icon, title, description, delay = 0 }: SkillCardProps) {
-  return (
-      <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay }}
-          className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-6 hover:bg-gray-700/50 transition-all duration-300 group"
-      >
-        <div className="flex items-center space-x-4">
-          <div className="p-3 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg group-hover:scale-110 transition-transform duration-300">
-            <Icon className="w-6 h-6 text-white" />
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-white">{title}</h3>
-            <p className="text-gray-400 text-sm">{description}</p>
-          </div>
-        </div>
-      </motion.div>
-  );
-}
-
 // Floating Particles Component
 function FloatingParticles() {
   const [isClient, setIsClient] = useState(false);
@@ -634,11 +612,12 @@ function ContactSection() {
           >
             <motion.div
                 whileHover={{scale: 1.05, y: -5}}
-                className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-6 hover:border-indigo-500 transition-all duration-300"
+                className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-6
+                hover:border-indigo-500 transition-all duration-300 min-w-[300px] -ml-5"
             >
               <Mail className="w-8 h-8 text-indigo-400 mx-auto mb-4"/>
               <h3 className="text-white font-semibold mb-2">Email</h3>
-              <p className="text-gray-400">your.email@example.com</p>
+              <p className="text-gray-400 ">nadeeshamedagama123@gmail.com</p>
             </motion.div>
 
             <motion.div
@@ -647,7 +626,7 @@ function ContactSection() {
             >
               <Phone className="w-8 h-8 text-purple-400 mx-auto mb-4"/>
               <h3 className="text-white font-semibold mb-2">Phone</h3>
-              <p className="text-gray-400">+1 (555) 123-4567</p>
+              <p className="text-gray-400">+94 76 646 0393</p>
             </motion.div>
 
             <motion.div
@@ -656,7 +635,7 @@ function ContactSection() {
             >
               <MapPin className="w-8 h-8 text-cyan-400 mx-auto mb-4"/>
               <h3 className="text-white font-semibold mb-2">Location</h3>
-              <p className="text-gray-400">Your City, Country</p>
+              <p className="text-gray-400">Bandaragama, Kalutara</p>
             </motion.div>
           </motion.div>
 
