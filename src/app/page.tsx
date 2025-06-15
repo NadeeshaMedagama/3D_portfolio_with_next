@@ -5,6 +5,7 @@ import { SkillsPreview } from './components/SkillsPreview';
 import { ProjectsSection } from './projects/page';
 import * as THREE from 'three';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import {
   ChevronDown,
   Github,
@@ -324,6 +325,12 @@ function Navigation() {
 
 // Hero Section
 function HeroSection() {
+
+  const { ref, inView } = useInView({
+    triggerOnce: false, // <--- IMPORTANT: allows multiple triggers
+    threshold: 0.2, // Adjusts how much should be visible before animation triggers
+  });
+
   return (
       <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* 3D Background */}
@@ -336,8 +343,9 @@ function HeroSection() {
         {/* Hero Content */}
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <motion.div
+              ref={ref}
               initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.8 }}
           >
             <motion.div
@@ -346,7 +354,7 @@ function HeroSection() {
                 transition={{ duration: 1, delay: 0.2 }}
                 className="mb-6"
             >
-              <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent pb-2">
                 Nadeesha Medagama
               </h1>
               <motion.div
@@ -434,14 +442,21 @@ function HeroSection() {
 
 // About Section
 function AboutSection() {
+
+  const { ref, inView } = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
+
   return (
       <section id="about" className="py-20 px-6 bg-gradient-to-b from-gray-900/50 to-gray-800/50 relative">
         <div className="max-w-6xl mx-auto">
           <motion.div
+              ref={ref}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
@@ -452,7 +467,7 @@ function AboutSection() {
                 initial={{ width: 0 }}
                 whileInView={{ width: 100 }}
                 transition={{ duration: 1 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
             />
             <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
               I'm a DevOps and cloud enthusiast passionate about automation and scalable infrastructure.
@@ -465,7 +480,7 @@ function AboutSection() {
                 initial={{opacity: 0, x: -50}}
                 whileInView={{opacity: 1, x: 0}}
                 transition={{duration: 0.8, delay: 0.2}}
-                viewport={{once: true}}
+                viewport={{once: false}}
                 className="space-y-6"
             >
               <h3 className="text-2xl font-bold text-white mb-6">My Journey</h3>
@@ -487,7 +502,7 @@ function AboutSection() {
                   initial={{opacity: 0, y: 20}}
                   whileInView={{opacity: 1, y: 0}}
                   transition={{duration: 0.6, delay: 0.4}}
-                  viewport={{once: true}}
+                  viewport={{once: false}}
               >
                 <div className="text-center">
                   <div className="text-2xl font-bold text-indigo-400">1+</div>
@@ -508,7 +523,7 @@ function AboutSection() {
                 initial={{opacity: 0, x: 50}}
                 whileInView={{opacity: 1, x: 0}}
                 transition={{duration: 0.8, delay: 0.4}}
-                viewport={{once: true}}
+                viewport={{once: false}}
                 className="relative w-[87%] mx-auto"
             >
               <div
