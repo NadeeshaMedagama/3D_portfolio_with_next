@@ -449,7 +449,7 @@ export default function SkillsSection() {
             title: "Containerization & Orchestration",
             description: "Expert in containerizing applications and managing container orchestration at scale.",
             skills: ["Docker", "Kubernetes", "Helm", "Docker Compose", "Podman", "OpenShift"],
-            proficiency: 95,
+            proficiency: 90,
             category: 'devops' as const
         },
         {
@@ -457,7 +457,7 @@ export default function SkillsSection() {
             title: "Cloud Platforms",
             description: "Proficient in designing and implementing cloud-native solutions across major platforms.",
             skills: ["AWS", "Azure", "GCP", "DigitalOcean", "Terraform", "CloudFormation"],
-            proficiency: 90,
+            proficiency: 87,
             category: 'cloud' as const
         },
         {
@@ -465,7 +465,7 @@ export default function SkillsSection() {
             title: "CI/CD & Version Control",
             description: "Building robust pipelines for continuous integration and deployment workflows.",
             skills: ["Jenkins", "GitLab CI", "GitHub Actions", "ArgoCD", "Git", "Bitbucket"],
-            proficiency: 92,
+            proficiency: 83,
             category: 'devops' as const
         },
         {
@@ -473,7 +473,7 @@ export default function SkillsSection() {
             title: "Infrastructure as Code",
             description: "Automating infrastructure provisioning and management through code.",
             skills: ["Terraform", "Ansible", "Pulumi", "CloudFormation", "Vagrant", "Packer"],
-            proficiency: 88,
+            proficiency: 78,
             category: 'automation' as const
         },
         {
@@ -481,7 +481,7 @@ export default function SkillsSection() {
             title: "Monitoring & Observability",
             description: "Implementing comprehensive monitoring and logging solutions for system reliability.",
             skills: ["Prometheus", "Grafana", "ELK Stack", "Datadog", "New Relic", "Jaeger"],
-            proficiency: 85,
+            proficiency: 75,
             category: 'monitoring' as const
         },
         {
@@ -489,18 +489,24 @@ export default function SkillsSection() {
             title: "Security & Compliance",
             description: "Integrating security practices into DevOps workflows and ensuring compliance.",
             skills: ["HashiCorp Vault", "OWASP", "SonarQube", "Trivy", "Falco", "OPA"],
-            proficiency: 82,
+            proficiency: 70,
             category: 'devops' as const
         }
     ];
 
     const certifications = [
-        {name: "AWS Solutions Architect", issuer: "Amazon Web Services", date: "2024", icon: Cloud},
-        {name: "Kubernetes Administrator", issuer: "CNCF", date: "2023", icon: Container},
-        {name: "Docker Certified Associate", issuer: "Docker Inc.", date: "2023", icon: Layers},
-        {name: "Terraform Associate", issuer: "HashiCorp", date: "2024", icon: Settings},
-        {name: "Azure DevOps Engineer", issuer: "Microsoft", date: "2023", icon: Workflow},
-        {name: "Jenkins Engineer", issuer: "CloudBees", date: "2024", icon: GitBranch}
+        {name: "Fundamentals of Azure DevOps", issuer: "Microsoft Learn", date: "2025", icon: Cloud,
+            link: "https://learn.microsoft.com/en-us/training/paths/deploy-applications-with-azure-devops/"},
+        {name: "Kubernetes Administrator", issuer: "CoDeKu Academy", date: "2025", icon: Container,
+            link: "https://drive.google.com/file/d/1XhgIks8hhSxauR6T1W9JkbpYLmjIz-oZ/view"},
+        {name: "Xtreme 18.0 Programming", issuer: "IEEE", date: "2024", icon: Layers,
+            link: "https://drive.google.com/file/d/14DhMJPqfrUtTq4KH0Ld2mLE0_zljHxBR/view?usp=sharing"},
+        {name: "Beginner's Guide to JavaScript", issuer: "Alison", date: "2024", icon: Settings,
+            link: "https://alison.com/user/pdf/4139/certificate"},
+        {name: "Dark & Deep Web", issuer: "ET (pvt) Ltd", date: "2023", icon: Workflow,
+            link: "https://drive.google.com/file/d/1lmX-iRFQMcjYIL2dfD-PB9EOVHDkBy93/view"},
+        {name: "DevOps foundations", issuer: "Microsoft Learn", date: "2025", icon: GitBranch,
+            link: "https://learn.microsoft.com/en-us/training/paths/devops-foundations-core-principles-practices/"}
     ];
 
     return (
@@ -588,15 +594,19 @@ export default function SkillsSection() {
 
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {certifications.map((cert, index) => (
-                            <motion.div
+                            <motion.a
                                 key={cert.name}
+                                href={cert.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 initial={{opacity: 0, y: 30}}
                                 whileInView={{opacity: 1, y: 0}}
                                 transition={{duration: 0.6, delay: index * 0.1}}
                                 viewport={{once: true}}
+                                className="block"
                             >
                                 <CertificationBadge {...cert} />
-                            </motion.div>
+                            </motion.a>
                         ))}
                     </div>
 
@@ -610,10 +620,10 @@ export default function SkillsSection() {
                     >
                         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
                             {[
-                                {value: "5+", label: "Years Experience", icon: BarChart3, color: "text-indigo-400"},
-                                {value: "100+", label: "Projects Deployed", icon: Workflow, color: "text-purple-400"},
-                                {value: "99.9%", label: "System Uptime", icon: Activity, color: "text-green-400"},
-                                {value: "50+", label: "Automations Built", icon: Zap, color: "text-orange-400"}
+                                {value: "1+", label: "Years Experience", icon: BarChart3, color: "text-indigo-400"},
+                                {value: "15+", label: "Projects Deployed", icon: Workflow, color: "text-purple-400"},
+                                {value: "75%", label: "System Uptime", icon: Activity, color: "text-green-400"},
+                                {value: "8+", label: "Automations Built", icon: Zap, color: "text-orange-400"}
                             ].map((stat, index) => (
                                 <motion.div
                                     key={stat.label}
