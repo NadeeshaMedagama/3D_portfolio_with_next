@@ -593,14 +593,21 @@ function AboutSection() {
 
 // Contact Section
 function ContactSection() {
+
+  const { ref, inView } = useInView({
+    triggerOnce: false, // <--- IMPORTANT: allows multiple triggers
+    threshold: 0.2, // Adjusts how much should be visible before animation triggers
+  });
+
   return (
       <section id="contact" className="py-20 px-6 relative">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
+              ref={ref}
               initial={{opacity: 0, y: 50}}
               whileInView={{opacity: 1, y: 0}}
               transition={{duration: 0.8}}
-              viewport={{once: true}}
+              viewport={{once: false }}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
               Let's Connect
@@ -610,7 +617,7 @@ function ContactSection() {
                 initial={{width: 0}}
                 whileInView={{width: 100}}
                 transition={{duration: 1}}
-                viewport={{once: true}}
+                viewport={{once: false}}
             />
             <p className="text-gray-400 text-lg mb-12 max-w-2xl mx-auto">
               Ready to bring your ideas to life? Let's discuss how we can work together
@@ -622,7 +629,7 @@ function ContactSection() {
               initial={{opacity: 0, y: 50}}
               whileInView={{opacity: 1, y: 0}}
               transition={{duration: 0.8, delay: 0.2}}
-              viewport={{once: true}}
+              viewport={{once: false}}
               className="grid md:grid-cols-3 gap-8 mb-12"
           >
             <motion.div
@@ -657,7 +664,7 @@ function ContactSection() {
               initial={{opacity: 0, y: 30}}
               whileInView={{opacity: 1, y: 0}}
               transition={{duration: 0.8, delay: 0.4}}
-              viewport={{once: true}}
+              viewport={{once: false }}
               className="flex justify-center space-x-6"
           >
             {[
