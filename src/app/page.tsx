@@ -509,10 +509,11 @@ function AboutSection() {
                 whileInView={{opacity: 1, x: 0}}
                 transition={{duration: 0.8, delay: 0.4}}
                 viewport={{once: true}}
-                className="relative"
+                className="relative w-[87%] mx-auto"
             >
               <div
-                  className="relative group cursor-pointer transform-gpu transition-all duration-500 ease-out"
+                  className="relative group cursor-pointer transform-gpu transition-all duration-500
+                  ease-out scale-87 hover:scale-92"
                   onMouseMove={(e) => {
                     const rect = e.currentTarget.getBoundingClientRect();
                     const x = e.clientX - rect.left;
@@ -547,8 +548,8 @@ function AboutSection() {
                       {/* Placeholder for your photo - Replace src with your actual photo */}
                       <div className="relative aspect-[4/5] overflow-hidden">
                         <img
-                            src={myPhoto}
-                            alt="Your Name"
+                            src="/images/me.jpeg"
+                            alt="Nadeesha"
                             className="w-full h-full object-cover"
                         />
                         <div
