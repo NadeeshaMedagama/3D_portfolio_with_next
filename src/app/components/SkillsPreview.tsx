@@ -61,7 +61,7 @@ export function SkillsPreview() {
                         <motion.button
                             whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(99, 102, 241, 0.3)" }}
                             whileTap={{ scale: 0.95 }}
-                            className="px-8 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold rounded-full hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 shadow-lg inline-flex items-center"
+                            className="cursor-pointer px-8 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold rounded-full hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 shadow-lg inline-flex items-center"
                         >
                             View Full Skills Breakdown
                             <ChevronRight className="w-5 h-5 ml-2" />
