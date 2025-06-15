@@ -599,36 +599,6 @@ export function ProjectsSection() {
                         ))}
                     </motion.div>
                 </AnimatePresence>
-
-                {/* Stats Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    viewport={{ once: true }}
-                    className="mt-20 grid grid-cols-1 md:grid-cols-4 gap-8"
-                >
-                    {[
-                        { icon: Cpu, number: "50+", label: "Deployments Automated", color: "text-blue-400" },
-                        { icon: HardDrive, number: "99.9%", label: "Uptime Achieved", color: "text-green-400" },
-                        { icon: Network, number: "85%", label: "Faster Deployments", color: "text-purple-400" },
-                        { icon: Shield, number: "Zero", label: "Security Incidents", color: "text-red-400" }
-                    ].map((stat, index) => (
-                        <motion.div
-                            key={stat.label}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                            whileHover={{ scale: 1.05, y: -5 }}
-                            className="text-center p-6 bg-gray-800/30 backdrop-blur-sm border border-gray-700 rounded-2xl hover:border-indigo-500/50 transition-all duration-300"
-                        >
-                            <stat.icon className={`w-8 h-8 ${stat.color} mx-auto mb-4`} />
-                            <div className={`text-3xl font-bold ${stat.color} mb-2`}>{stat.number}</div>
-                            <div className="text-gray-400 text-sm">{stat.label}</div>
-                        </motion.div>
-                    ))}
-                </motion.div>
             </div>
         </section>
     );
