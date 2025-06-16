@@ -339,24 +339,32 @@ function ProjectCard({
             </div>
 
             {/* Action buttons */}
-            <div className="flex space-x-3">
-                {githubUrl && (
+            <div className="flex space-x-3 relative z-20">
+                {githubUrl && githubUrl !== "#" && (
                     <motion.a
                         href={githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="flex items-center space-x-2 px-4 py-2 bg-gray-700/50 hover:bg-gray-600/50 text-gray-300 hover:text-white rounded-lg transition-all duration-300"
+                        className="flex items-center space-x-2 px-4 py-2 bg-gray-700/50 hover:bg-gray-600/50 text-gray-300
+                        hover:text-white rounded-lg transition-all duration-300 cursor-pointer"
+                        onClick={(e) => e.stopPropagation()}
                     >
                         <Github className="w-4 h-4" />
                         <span className="text-sm font-medium">Code</span>
                     </motion.a>
                 )}
-                {liveUrl && (
+                {liveUrl && liveUrl !== "#" && (
                     <motion.a
                         href={liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white rounded-lg transition-all duration-300"
+                        className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600
+                        hover:from-indigo-600 hover:to-purple-700 text-white rounded-lg transition-all duration-300 cursor-pointer"
+                        onClick={(e) => e.stopPropagation()}
                     >
                         <ExternalLink className="w-4 h-4" />
                         <span className="text-sm font-medium">Live Demo</span>
@@ -483,7 +491,8 @@ export function ProjectsSection() {
             technologies: ["React Native", "TypeScript", "AsyncStorage"],
             category: "Mobile Development",
             icon: ListTodo,
-            githubUrl: "https://github.com/NadeeshaMedagama/todo_list_mobile_app_with_react_native.git"
+            githubUrl: "https://github.com/NadeeshaMedagama/todo_list_mobile_app_with_react_native.git",
+            liveUrl: "https://todo-list-mobile-app-demo-video.netlify.app/"
         },
         {
             title: "Python Flask App Deployment with Terraform",
