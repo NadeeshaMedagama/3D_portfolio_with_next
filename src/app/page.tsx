@@ -6,6 +6,7 @@ import { ProjectsSection } from './projects/page';
 import * as THREE from 'three';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import Link from 'next/link';
 import {
   ChevronDown,
   Github,
@@ -257,12 +258,15 @@ function Navigation() {
       >
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
+            <Link href="#home" passHref>
             <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="cursor-pointer text-2xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent"
+                className="cursor-pointer text-2xl font-bold bg-gradient-to-r
+                from-indigo-400 to-purple-400 bg-clip-text text-transparent"
             >
               NM Portfolio
             </motion.div>
+            </Link>
 
             <div className="hidden md:flex space-x-8">
               {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((item, index) => {
