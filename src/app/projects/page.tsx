@@ -494,10 +494,10 @@ export function ProjectsSection() {
 
     const categories = [
         { name: 'All', icon: Globe },
-        { name: 'Infrastructure', icon: Server },
-        { name: 'Automation', icon: Zap },
-        { name: 'Security', icon: Shield },
-        { name: 'Monitoring', icon: Activity }
+        { name: 'MERN Stack', icon: Server },
+        { name: 'Web Development', icon: Zap },
+        { name: 'Mobile Development', icon: Shield },
+        { name: 'DevOps', icon: Activity }
     ];
 
     useEffect(() => {
@@ -536,7 +536,7 @@ export function ProjectsSection() {
                         <span className="text-indigo-300 font-medium">DevOps & Cloud Projects</span>
                     </motion.div>
 
-                    <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                    <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent pb-1">
                         Featured Projects
                     </h2>
 
@@ -549,8 +549,8 @@ export function ProjectsSection() {
                     />
 
                     <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-                        Explore my collection of DevOps, cloud infrastructure, and automation projects.
-                        Each solution is designed to improve efficiency, security, and scalability in modern development workflows.
+                        Explore my collection of DevOps, Cloud Infrastructure, and Automation projects.
+                        Each solution is designed to improve Efficiency, Security, and Scalability in modern development workflows.
                     </p>
                 </motion.div>
 
