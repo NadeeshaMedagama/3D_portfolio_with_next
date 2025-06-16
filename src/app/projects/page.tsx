@@ -21,7 +21,9 @@ import {
     ArrowRight,
     Cpu,
     HardDrive,
-    Network
+    Network,
+    Layout,
+    Repeat, Smartphone, Fuel, ListTodo
 } from 'lucide-react';
 
 // 3D Floating Tech Icons Scene
@@ -253,7 +255,7 @@ function ProjectCard({
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
             className={`
-        relative group cursor-pointer
+        relative group 
         ${featured
                 ? 'md:col-span-2 bg-gradient-to-br from-indigo-900/30 to-purple-900/30'
                 : 'bg-gray-800/30'
@@ -297,10 +299,10 @@ function ProjectCard({
                 <motion.div
                     className={`
             p-3 rounded-xl
-            ${category === 'Infrastructure' ? 'bg-gradient-to-r from-blue-500 to-blue-600' :
-                        category === 'Automation' ? 'bg-gradient-to-r from-green-500 to-green-600' :
-                            category === 'Security' ? 'bg-gradient-to-r from-red-500 to-red-600' :
-                                category === 'Monitoring' ? 'bg-gradient-to-r from-yellow-500 to-yellow-600' :
+            ${category === 'MERN Stack' ? 'bg-gradient-to-r from-blue-500 to-blue-600' :
+                        category === 'Web Development' ? 'bg-gradient-to-r from-green-500 to-green-600' :
+                            category === 'Mobile Development' ? 'bg-gradient-to-r from-red-500 to-red-600' :
+                                category === 'DevOps' ? 'bg-gradient-to-r from-yellow-500 to-yellow-600' :
                                     'bg-gradient-to-r from-purple-500 to-purple-600'
                     }
           `}
@@ -395,6 +397,7 @@ function FilterButton({ category, isActive, onClick, icon: Icon }: FilterButtonP
                 ? 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-500/25'
                 : 'bg-gray-800/50 text-gray-400 hover:bg-gray-700/50 hover:text-white border border-gray-700'
             }
+            cursor-pointer
       `}
         >
             <Icon className="w-4 h-4" />
@@ -421,74 +424,74 @@ export function ProjectsSection() {
 
     const projects = [
         {
-            title: "Kubernetes Multi-Cloud Orchestrator",
-            description: "Enterprise-grade Kubernetes deployment automation across AWS, GCP, and Azure with Terraform, featuring auto-scaling, load balancing, and disaster recovery capabilities.",
-            technologies: ["Kubernetes", "Terraform", "AWS EKS", "GCP GKE", "Azure AKS", "Helm", "ArgoCD"],
-            category: "Infrastructure",
-            icon: Container,
-            githubUrl: "#",
-            liveUrl: "#",
+            title: "NovaLearn LMS Platform",
+            description: "A full-featured Learning Management System built with the MERN stack, offering user-friendly course management, student progress tracking, interactive lessons, and secure authentication for learners and instructors.",
+            technologies: ["MongoDB", "Express.js", "React", "Node.js", "JWT", "Redux", "Cloudinary"],
+            category: "MERN Stack",
+            icon: Layout,
+            githubUrl: "https://github.com/NadeeshaMedagama/LMS_platform_with_MERN_stack.git",
+            liveUrl: "https://nova-learn-lms-nadeeshamedagama.netlify.app/",
             featured: true
         },
         {
-            title: "CI/CD Pipeline Accelerator",
-            description: "Comprehensive GitOps workflow automation with Jenkins, GitHub Actions, and GitLab CI/CD, reducing deployment time by 85% and improving reliability.",
-            technologies: ["Jenkins", "GitHub Actions", "GitLab CI", "SonarQube", "Nexus", "Docker"],
-            category: "Automation",
-            icon: GitBranch,
-            githubUrl: "#",
+            title: "FloraVista E-commerce Platform",
+            description: "A flower-focused e-commerce platform featuring dynamic product listings, shopping cart functionality, secure checkout, and order management. Built to streamline the online flower buying experience.",
+            technologies: ["HTML", "CSS", "PHP", "MySQL"],
+            category: "Web Development",
+            icon: Layout,
+            githubUrl: "https://github.com/NadeeshaMedagama/kln_php_project_floraVista.git",
             liveUrl: "#"
         },
         {
-            title: "Infrastructure Security Scanner",
-            description: "Automated security compliance tool that scans cloud infrastructure for vulnerabilities, misconfigurations, and compliance violations across multiple cloud providers.",
-            technologies: ["Python", "Terraform", "AWS Config", "Azure Policy", "Checkov", "SAST"],
-            category: "Security",
-            icon: Shield,
-            githubUrl: "#"
+            title: "CI/CD Pipeline with Jenkins",
+            description: "Integrated Jenkins with Git-based version control systems to automate build, test, and deployment workflows using shell scripts on AWS infrastructure, ensuring a smooth and reliable CI/CD pipeline.",
+            technologies: ["Jenkins", "AWS", "Shell Scripting", "CI/CD"],
+            category: "DevOps",
+            icon: Repeat,
+            liveUrl: "https://www.linkedin.com/posts/nadeesha-medagama-5aa827287_aws-ec2-jenkins-activity-7324357455994388480-SZuU"
         },
         {
-            title: "Cloud Cost Optimization Engine",
-            description: "AI-powered cost analysis and optimization platform that automatically identifies and eliminates cloud waste, achieving up to 40% cost reduction.",
-            technologies: ["Python", "AWS Cost Explorer", "GCP Billing API", "ML", "Grafana"],
-            category: "Automation",
-            icon: Cloud,
-            githubUrl: "#",
-            liveUrl: "#"
+            title: "Habit Tracker Mobile App",
+            description: "A sleek and intuitive mobile application for tracking daily habits and routines, built with React Native CLI and TypeScript. Features include progress visualization, reminders, and persistent local storage using AsyncStorage.",
+            technologies: ["React Native CLI", "TypeScript", "AsyncStorage"],
+            category: "Mobile Development",
+            icon: Smartphone,
+            githubUrl: "https://github.com/NadeeshaMedagama/HabitTracker_mobile_application_with_react-native.git",
+            liveUrl: "https://habit-tracker-mobile-app-demo-video.netlify.app/"
         },
         {
-            title: "Observability Stack Platform",
-            description: "Complete monitoring and observability solution with distributed tracing, metrics collection, and intelligent alerting for microservices architectures.",
-            technologies: ["Prometheus", "Grafana", "Jaeger", "ELK Stack", "OpenTelemetry", "Kubernetes"],
-            category: "Monitoring",
-            icon: Activity,
-            githubUrl: "#",
-            liveUrl: "#",
-            featured: true
-        },
-        {
-            title: "Serverless API Gateway",
-            description: "High-performance, auto-scaling API gateway built on AWS Lambda and API Gateway with advanced rate limiting, authentication, and monitoring capabilities.",
-            technologies: ["AWS Lambda", "API Gateway", "DynamoDB", "CloudFormation", "Node.js"],
-            category: "Infrastructure",
+            title: "Python Web Server on AWS EC2",
+            description: "Successfully deployed a Python-based HTTP server on an AWS EC2 instance within a custom VPC. This project involved configuring security groups, managing network rules, and launching the server using Python's built-in module. The server was made publicly accessible, enhancing my skills in cloud infrastructure, Linux server administration, and network configuration — key competencies for a DevOps engineer.",
+            technologies: ["Python", "AWS EC2", "VPC", "Security Groups", "Linux"],
+            category: "DevOps",
             icon: Server,
-            githubUrl: "#"
+            githubUrl: "",
+            liveUrl: "https://www.linkedin.com/posts/nadeesha-medagama-5aa827287_aws-ec2-python-activity-7325389815011573761-dZDz?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEW2JJIBZi47mjvLbuK6oM9URnVIAyLG0Xg",
+            featured: true
         },
         {
-            title: "Docker Security Hardening Tool",
-            description: "Automated container security scanner and hardening tool that implements security best practices and vulnerability assessments for Docker containers.",
-            technologies: ["Docker", "Trivy", "Falco", "OPA", "Python", "Kubernetes"],
-            category: "Security",
-            icon: Container,
-            githubUrl: "#"
+            title: "Fuel Quota Management System",
+            description: "A scalable fuel quota management platform developed as a group project using React, Spring Boot, and MySQL. Key features include real-time tracking, secure JWT-based authentication, and role-based access control for admins and users.",
+            technologies: ["React", "Spring Boot", "MySQL", "JWT", "Role-based Access"],
+            category: "Web Development",
+            icon: Fuel,
+            githubUrl: "https://github.com/NadeeshaMedagama/fuel-quota-management-system.git",
         },
         {
-            title: "Infrastructure as Code Template Library",
-            description: "Comprehensive collection of reusable Terraform modules and Ansible playbooks for rapid cloud infrastructure deployment across multiple providers.",
-            technologies: ["Terraform", "Ansible", "AWS", "GCP", "Azure", "Packer", "Consul"],
-            category: "Infrastructure",
-            icon: Layers,
-            githubUrl: "#"
+            title: "To-Do List Mobile App",
+            description: "A simple and offline-capable to-do app built with React Native and TypeScript, using AsyncStorage for task persistence.",
+            technologies: ["React Native", "TypeScript", "AsyncStorage"],
+            category: "Mobile Development",
+            icon: ListTodo,
+            githubUrl: "https://github.com/NadeeshaMedagama/todo_list_mobile_app_with_react_native.git"
+        },
+        {
+            title: "Python Flask App Deployment with Terraform",
+            description: "Deployed a Python Flask web app on AWS EC2 using Terraform. Set up a custom VPC, subnets, security groups, and automated infrastructure provisioning with Infrastructure as Code (IaC).",
+            technologies: ["Terraform", "AWS EC2", "VPC", "Flask", "Infrastructure as Code"],
+            category: "DevOps",
+            icon: Cloud,
+            liveUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7337880774865506304?updateEntityUrn=urn%3Ali%3Afs_feedUpdate%3A%28V2%2Curn%3Ali%3Aactivity%3A7337880774865506304%29&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3B95o5dsYxRh6pSVi0WdkIKA%3D%3D"
         }
     ];
 
