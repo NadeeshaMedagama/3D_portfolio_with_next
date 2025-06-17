@@ -4,22 +4,16 @@ import React, { useRef, useEffect, useState } from 'react';
 import { SkillsPreview } from './components/SkillsPreview';
 import  ProjectsSection from './projects/page';
 import * as THREE from 'three';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Link from 'next/link';
 import {
   ChevronDown,
   Github,
   Linkedin,
-  User,
   Mail,
   Phone,
   MapPin,
-  Code,
-  Palette,
-  Database,
-  Smartphone,
-  LucideIcon,
   Twitter,
   BookOpenText, Facebook
 } from 'lucide-react';
@@ -168,14 +162,6 @@ function ThreeJSScene() {
 
   return <div ref={mountRef} className="absolute inset-0" style={{ zIndex: 0 }} />;
 }
-
-interface SkillCardProps {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-  delay?: number;
-}
-
 // Floating Particles Component
 function FloatingParticles() {
   const [isClient, setIsClient] = useState(false);
@@ -222,7 +208,6 @@ function Navigation() {
 
       // For active section detection
       const sections = document.querySelectorAll('section[id]');
-      let current = '';
       let closestSection = '';
       let closestDistance = Infinity;
 
@@ -427,7 +412,7 @@ function HeroSection() {
 // About Section
 function AboutSection() {
 
-  const { ref, inView } = useInView({
+  const { ref} = useInView({
     triggerOnce: false,
     threshold: 0.2,
   });
@@ -578,7 +563,7 @@ function AboutSection() {
 // Contact Section
 function ContactSection() {
 
-  const { ref, inView } = useInView({
+  const { ref} = useInView({
     triggerOnce: false, // <--- IMPORTANT: allows multiple triggers
     threshold: 0.2, // Adjusts how much should be visible before animation triggers
   });
