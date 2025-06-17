@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import { SkillsPreview } from './components/SkillsPreview';
-import { ProjectsSection } from './projects/page';
+import  ProjectsSection from './projects/page';
 import * as THREE from 'three';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
