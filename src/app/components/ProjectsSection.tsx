@@ -6,22 +6,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
     Server,
     Cloud,
-    GitBranch,
-    Container,
     Shield,
     Zap,
-    Database,
     Globe,
     Terminal,
-    Settings,
     Activity,
-    Layers,
     ExternalLink,
     Github,
     ArrowRight,
-    Cpu,
-    HardDrive,
-    Network,
     Layout,
     Repeat, Smartphone, Fuel, ListTodo
 } from 'lucide-react';
