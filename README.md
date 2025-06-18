@@ -10,9 +10,7 @@
 
 ## 🌟 Live Demo
 
-**[🔗 Visit Live Portfolio](YOUR_LIVE_LINK_HERE)**
-
-*Replace `YOUR_LIVE_LINK_HERE` with your actual deployed URL*
+**[🔗 Visit Live Portfolio](https://master.db1te5firbr05.amplifyapp.com/)**
 
 ---
 
